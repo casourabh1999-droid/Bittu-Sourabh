@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<title>Bittu & Sourabh — Our Story</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 0%,rgba(229,9,20,.08),transparent 35%);z-index:-1}
+.nav{position:fixed;top:0;left:0;right:0;height:70px;display:flex;align-items:center;padding:0 4%;z-index:20;background:linear-gradient(#050505,transparent);transition:.3s}
+.nav.scrolled{background:rgba(5,5,5,.95);backdrop-filter:blur(10px)}
+.logo{font-size:25px;font-weight:900;color:#e50914;letter-spacing:-1px}.logo span{color:#fff}
+.navlinks{display:flex;gap:25px;margin-left:35px;font-size:14px}.navlinks a{color:#ddd;text-decoration:none}.navlinks a:hover{color:#fff}
+.hero{min-height:88vh;position:relative;display:flex;align-items:flex-end;padding:0 5% 8%;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,#050505 0%,rgba(5,5,5,.72) 35%,rgba(5,5,5,.18) 72%),linear-gradient(0deg,#050505 0%,transparent 38%),url('images/photo2.webp');background-size:cover;background-position:center 25%;filter:saturate(.95)}
+.hero-content{position:relative;max-width:680px;z-index:2}.eyebrow{font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#ddd;margin-bottom:12px}
+h1{font-size:clamp(45px,7vw,86px);line-height:.95;margin:0 0 18px;font-weight:900;letter-spacing:-3px}
+.red{color:#e50914}.subtitle{font-size:clamp(18px,2.2vw,25px);font-weight:600;margin:0 0 13px}.desc{color:#d2d2d2;font-size:16px;line-height:1.55;max-width:580px}
+.buttons{display:flex;gap:10px;margin-top:25px;flex-wrap:wrap}.btn{border:0;border-radius:5px;padding:13px 22px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:9px}.primary{background:#fff;color:#000}.secondary{background:rgba(80,80,80,.8);color:#fff}.btn:hover{transform:scale(1.03)}
+section{padding:25px 5% 10px}.section-title{font-size:22px;margin:0 0 14px;font-weight:800}.muted{color:#999;font-size:13px;margin-top:-7px;margin-bottom:15px}
+.row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(180px,23vw);gap:12px;overflow-x:auto;padding:5px 0 20px;scrollbar-width:none}.row::-webkit-scrollbar{display:none}
+.card{position:relative;aspect-ratio:2/3;border-radius:4px;overflow:hidden;background:#171717;cursor:pointer;transition:transform .25s,box-shadow .25s}.card:hover{transform:scale(1.045);z-index:3;box-shadow:0 15px 35px #000}
+.card img{width:100%;height:100%;object-fit:cover}.card:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.9))}
+.card-label{position:absolute;left:12px;bottom:12px;z-index:2;font-weight:800;font-size:14px}.card-label small{display:block;color:#ddd;font-weight:500;margin-top:4px}
+.wide{grid-auto-columns:minmax(270px,38vw)}.wide .card{aspect-ratio:16/9}
+.wide .card img{object-fit:cover}
+.feature{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center;padding-top:55px}
+.feature-image{height:470px;border-radius:8px;overflow:hidden;position:relative}.feature-image img{width:100%;height:100%;object-fit:cover}.feature-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,#050505)}
+.feature-text h2{font-size:clamp(30px,4vw,48px);margin:0 0 12px}.feature-text p{color:#bbb;line-height:1.7;font-size:16px}.tag{display:inline-block;color:#e50914;font-weight:800;font-size:12px;letter-spacing:2px;margin-bottom:10px}
+.countdown{margin:45px 5% 25px;border-radius:10px;padding:45px 25px;text-align:center;background:linear-gradient(135deg,#170306,#080808 55%,#160303);border:1px solid #2d1113;box-shadow:0 20px 60px rgba(229,9,20,.08)}
+.countdown h2{font-size:clamp(27px,4vw,45px);margin:0 0 8px}.countdown p{color:#aaa;margin:0 0 25px}.timer{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.timebox{min-width:85px;padding:15px 12px;background:#111;border-radius:6px}.timebox strong{display:block;font-size:30px}.timebox span{font-size:11px;color:#999;text-transform:uppercase;letter-spacing:1px}
+.message{max-width:800px;margin:50px auto 80px;text-align:center;padding:20px}.message .heart{font-size:35px;color:#e50914}.message h2{font-size:35px;margin:10px 0 20px}.message p{font-family:Georgia,serif;color:#ccc;font-size:20px;line-height:1.7}
+footer{border-top:1px solid #1b1b1b;color:#777;text-align:center;padding:30px 15px;font-size:12px}.footer-red{color:#e50914}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-inner{max-width:900px;width:100%;background:#101010;border-radius:8px;overflow:hidden;position:relative}.modal img{display:block;width:100%;max-height:78vh;object-fit:contain;background:#000}.close{position:absolute;right:12px;top:12px;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#000;font-size:20px;cursor:pointer;z-index:2}
+@media(max-width:700px){.nav{height:58px}.navlinks{display:none}.hero{min-height:78vh;padding:0 6% 11%;align-items:flex-end}.hero-bg{background-position:58% center;background-image:linear-gradient(90deg,#050505 0%,rgba(5,5,5,.5) 65%,rgba(5,5,5,.15)),linear-gradient(0deg,#050505 0%,transparent 50%),url('images/photo2.webp')}.desc{font-size:14px}.row{grid-auto-columns:42vw}.wide{grid-auto-columns:75vw}.feature{grid-template-columns:1fr;padding-top:30px}.feature-image{height:400px}.feature-image:after{background:linear-gradient(0deg,#050505,transparent 45%)}section{padding-left:6%;padding-right:6%}.countdown{margin-left:6%;margin-right:6%;padding:35px 15px}.timebox{min-width:70px}.timebox strong{font-size:25px}h1{letter-spacing:-2px}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="logo">NETFLIX<span> • B&S</span></div>
+  <div class="navlinks"><a href="#memories">Memories</a><a href="#bittu">Bittu</a><a href="#countdown">August 26</a><a href="#message">Our Story</a></div>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">A Netflix Original • 2026</div>
+    <h1>BITTU <span class="red">&</span><br>SOURABH</h1>
+    <p class="subtitle">The love story I never want to stop watching.</p>
+    <p class="desc">Two people. A thousand little moments. One very special next episode. Welcome to our own little Netflix universe. ❤️</p>
+    <div class="buttons">
+      <a class="btn primary" href="#memories">▶ Play Our Story</a>
+      <a class="btn secondary" href="#countdown">♡ August 26</a>
+    </div>
+  </div>
+</header>
+
+<section id="memories">
+  <h2 class="section-title">Continue Watching for Bittu & Sourabh</h2>
+  <p class="muted">Because apparently one lifetime isn't enough.</p>
+  <div class="row">
+    <div class="card" onclick="openPhoto(1)"><img src="images/photo1.webp"><div class="card-label">Episode 01<small>The Beginning ❤️</small></div></div>
+    <div class="card" onclick="openPhoto(2)"><img src="images/photo2.webp"><div class="card-label">Episode 02<small>Just Us</small></div></div>
+    <div class="card" onclick="openPhoto(3)"><img src="images/photo3.webp"><div class="card-label">Episode 03<small>My Favorite Smile</small></div></div>
+    <div class="card" onclick="openPhoto(4)"><img src="images/photo4.webp"><div class="card-label">Episode 04<small>Our Kind of Happy</small></div></div>
+    <div class="card" onclick="openPhoto(5)"><img src="images/photo5.webp"><div class="card-label">Episode 05<small>Everyday Magic</small></div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Because Bittu Deserves Her Own Category</h2>
+  <div class="row wide">
+    <div class="card" onclick="openPhoto(6)"><img src="images/photo6.webp"><div class="card-label">Main Character Energy<small>★★★★★</small></div></div>
+    <div class="card" onclick="openPhoto(7)"><img src="images/photo7.webp"><div class="card-label">The One I Choose<small>Romance • Forever</small></div></div>
+    <div class="card" onclick="openPhoto(8)"><img src="images/photo8.webp"><div class="card-label">My Safe Place<small>Feel-good • 100%</small></div></div>
+    <div class="card" onclick="openPhoto(9)"><img src="images/photo9.webp"><div class="card-label">Us ❤️<small>Best episode yet</small></div></div>
+  </div>
+</section>
+
+<section class="feature" id="bittu">
+  <div class="feature-image"><img src="images/photo7.webp" alt="Bittu"></div>
+  <div class="feature-text">
+    <div class="tag">TOP 1 IN SOURABH'S HEART</div>
+    <h2>Bittu.<br>My favorite person.</h2>
+    <p>Some people become a part of your story. You became the story I want to keep writing.</p>
+    <p>And if life were Netflix, I'd still choose <strong>“Bittu & Sourabh”</strong> every single time.</p>
+  </div>
+</section>
+
+<div class="countdown" id="countdown">
+  <div class="tag">COMING SOON</div>
+  <h2>Our Next Big Episode: August 26 💍</h2>
+  <p>The countdown to a very special day.</p>
+  <div class="timer">
+    <div class="timebox"><strong id="days">00</strong><span>Days</span></div>
+    <div class="timebox"><strong id="hours">00</strong><span>Hours</span></div>
+    <div class="timebox"><strong id="minutes">00</strong><span>Minutes</span></div>
+    <div class="timebox"><strong id="seconds">00</strong><span>Seconds</span></div>
+  </div>
+</div>
+
+<section id="message" class="message">
+  <div class="heart">♥</div>
+  <h2>To Bittu, from Sourabh</h2>
+  <p>“Out of all the stories in the world, I'm happiest that ours is the one I'm living. Here's to every silly moment, every smile, every memory — and every episode still waiting for us.”</p>
+  <p><strong>Our series has no finale. ❤️</strong></p>
+</section>
+
+<footer>Made with way too much love by <span class="footer-red">Sourabh</span> for <span class="footer-red">Bittu</span> • 2026</footer>
+
+<div class="modal" id="modal" onclick="closePhoto(event)">
+  <div class="modal-inner">
+    <button class="close" onclick="closePhoto()">×</button>
+    <img id="modalImg" src="" alt="Memory">
+  </div>
+</div>
+
+<script>
+const target = new Date("2026-08-26T00:00:00+05:30").getTime();
+function tick(){
+  const diff = target - Date.now();
+  if(diff <= 0){
+    document.getElementById("days").textContent="00";
+    document.getElementById("hours").textContent="00";
+    document.getElementById("minutes").textContent="00";
+    document.getElementById("seconds").textContent="00";
+    return;
+  }
+  document.getElementById("days").textContent=String(Math.floor(diff/86400000)).padStart(2,"0");
+  document.getElementById("hours").textContent=String(Math.floor(diff/3600000)%24).padStart(2,"0");
+  document.getElementById("minutes").textContent=String(Math.floor(diff/60000)%60).padStart(2,"0");
+  document.getElementById("seconds").textContent=String(Math.floor(diff/1000)%60).padStart(2,"0");
+}
+tick(); setInterval(tick,1000);
+
+window.addEventListener("scroll",()=>document.getElementById("nav").classList.toggle("scrolled",scrollY>40));
+function openPhoto(n){document.getElementById("modalImg").src=`images/photo${n}.webp`;document.getElementById("modal").classList.add("show");document.body.style.overflow="hidden";}
+function closePhoto(e){if(!e || e.target.id==="modal" || e.target.classList.contains("close")){document.getElementById("modal").classList.remove("show");document.body.style.overflow="";}}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePhoto();});
+</script>
+</body>
+</html>
